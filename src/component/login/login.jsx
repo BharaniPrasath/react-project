@@ -20,10 +20,16 @@ function Login() {
     }
 
     axios
-      .post("http://localhost:8000/login", { username, password }, { withCredentials: true })
+      .post("http://localhost:8000/login/", { username, password }, { withCredentials: true })
       .then((response) => {
         console.log("Login response:", response.data);
         setError("");
+
+        // ✅ Store login state
+        localStorage.setItem("isAuthenticated", "true");
+        localStorage.setItem("user", JSON.stringify({ username }));
+
+        // Redirect
         navigate("/");
       })
       .catch((error) => {

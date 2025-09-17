@@ -1,26 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Offcanvas, Nav } from "react-bootstrap";
-import { FaSignInAlt, FaSignOutAlt, FaUserCircle, FaShoppingCart, FaStore, FaHeart, FaTruck, FaQuestionCircle, FaUser } from "react-icons/fa";
+import {
+  FaSignInAlt,
+  FaSignOutAlt,
+  FaUserCircle,
+  FaShoppingCart,
+  FaStore,
+  FaHeart,
+  FaTruck,
+  FaQuestionCircle,
+  FaUser,
+} from "react-icons/fa";
 
 import search from "../../assets/search.png";
 import "../../styles/home/navbar.css";
 
 function MyNavbar({ hidesearch, hidelike, hidelogin, hidecart }) {
   const [show, setShow] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    localStorage.getItem("isAuthenticated") === "true"
+  );
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  // ✅ Check login state
-  const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
-
   const handleLogout = () => {
     localStorage.removeItem("isAuthenticated");
     localStorage.removeItem("user");
-    window.location.href = "/"; // redirect to login page
+    setIsAuthenticated(false); // ✅ update state immediately
+    window.location.href = "/"; // optional redirect
   };
+
+  // ✅ Keep state in sync with localStorage (in case of login elsewhere)
+  useEffect(() => {
+    const checkAuth = () => {
+      setIsAuthenticated(localStorage.getItem("isAuthenticated") === "true");
+    };
+    window.addEventListener("storage", checkAuth);
+    return () => {
+      window.removeEventListener("storage", checkAuth);
+    };
+  }, []);
 
   return (
     <>
@@ -28,9 +50,7 @@ function MyNavbar({ hidesearch, hidelike, hidelogin, hidecart }) {
       <div className="mynavbar">
         <div className="navbar-container">
           <div className="nav-logo">
-            <Link as={Link} to="/">
-              shopsy
-            </Link>
+            <Link to="/">shopsy</Link>
           </div>
 
           {/* Search */}
@@ -55,20 +75,15 @@ function MyNavbar({ hidesearch, hidelike, hidelogin, hidecart }) {
             </div>
           )}
 
-          {isAuthenticated && (
-            <div className="logout right-side" onClick={handleLogout}>
-              <FaSignOutAlt />
-              <span> Logout</span>
-            </div>
-          )}
 
           {!hidelike && (
-            <div className=" right-side">
+            <div className="right-side">
               <Link to="/wishlist" className="like">
                 <FaHeart />
               </Link>
             </div>
           )}
+
           {!hidecart && (
             <div className="cart right-side">
               <Link to="/cart">
@@ -77,6 +92,7 @@ function MyNavbar({ hidesearch, hidelike, hidelogin, hidecart }) {
               </Link>
             </div>
           )}
+
           <div className="seller right-side">
             <Link to="/seller">
               <FaStore /> <span>Become a Seller</span>
@@ -84,27 +100,24 @@ function MyNavbar({ hidesearch, hidelike, hidelogin, hidecart }) {
           </div>
 
           {/* Offcanvas Trigger */}
-          <a
-            className="offcanva"
-            onClick={handleShow}
-            style={{ background: "none !important" }}
-          >
+          <a className="offcanva" onClick={handleShow}>
             ☰
           </a>
         </div>
       </div>
 
       {/* Offcanvas */}
-      <Offcanvas show={show} onHide={handleClose} placement="end" className="offcanvas-container">
+      <Offcanvas
+        show={show}
+        onHide={handleClose}
+        placement="end"
+        className="offcanvas-container"
+      >
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Welcome</Offcanvas.Title>
         </Offcanvas.Header>
 
         <Offcanvas.Body className="offcanvas-body">
-          {/* Profile Pic */}
-          <div className="profile_pics">
-          </div>
-
           {/* Menu */}
           <div className="menu-section">
             <Nav className="flex-column">
@@ -133,7 +146,7 @@ function MyNavbar({ hidesearch, hidelike, hidelogin, hidecart }) {
                 Login <FaSignInAlt />
               </Link>
             ) : (
-              <button className="btn-login" onClick={handleLogout}>
+              <button className="btn-login" onClick={handleLogout} style={{border:"none",outline:"none",background:"none",borderTop:"1px solid black"}} >
                 Logout <FaSignOutAlt />
               </button>
             )}
