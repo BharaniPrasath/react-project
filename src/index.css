@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+}
+
+/* For Chrome, Safari, Edge */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* For Firefox */
+html {
+  scrollbar-width: none;
+}
+
+/* For IE/Edge (legacy) */
+html {
+  -ms-overflow-style: none;
+}
+body{
+    scroll-behavior: smooth;
+}
