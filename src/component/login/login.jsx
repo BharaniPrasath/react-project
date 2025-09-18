@@ -4,6 +4,22 @@ import axios from "axios";
 import "../../styles/login/login.css";
 import Navbar from "../home/navbar";
 
+function getCookie(name) {
+  let cookieValue = null;
+  if (document.cookie && document.cookie !== "") {
+    const cookies = document.cookie.split(";");
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      // Does this cookie string begin with the name we want?
+      if (cookie.substring(0, name.length + 1) === name + "=") {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+      }
+    }
+  }
+  return cookieValue;
+}
+
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -20,7 +36,7 @@ function Login() {
     }
 
     axios
-      .post("http://localhost:8000/login/", { username, password }, { withCredentials: true })
+      .post("http://localhost:8000/login/", { username, password }, { headers: { "X-CSRFToken": getCookie("csrftoken") }, withCredentials: true })
       .then((response) => {
         console.log("Login response:", response.data);
         setError("");
@@ -57,7 +73,7 @@ function Login() {
           <div className="login-right">
             <h2>Welcome!</h2>
 
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} method="POST">
               {/* Username */}
               <label htmlFor="username">Username</label>
               <div className="user-name">

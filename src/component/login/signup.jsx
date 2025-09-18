@@ -29,8 +29,7 @@ function Signup() {
       .post("http://127.0.0.1:8000/signup/", {
         username,
         email,
-        password,
-        confirmPassword,
+        password
       })
       .then((res) => {
         console.log("Signup success:", res.data);

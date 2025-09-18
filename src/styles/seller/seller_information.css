@@ -1,0 +1,206 @@
+body {
+    background: linear-gradient(135deg, #fdfbfb, #ebedee);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container-1 {
+    padding: 20px;
+}
+
+/* ---------- Progress Tracker ---------- */
+.progress-tracker {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.progress-tracker .step {
+    margin: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+    width: auto;
+}
+
+.step i {
+    font-size: 18px;
+}
+
+.progress-tracker  .label {
+    margin-top: 12px;
+    color: #777;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.progress-tracker .line {
+    width: 60px;
+    height: 2.5px;
+    background: #ddd;
+}
+
+/* Fill line for completed */
+.progress-tracker .completed~.line {
+    background: linear-gradient(90deg, #f68b1e, #ffb347);
+}
+
+/* ---------- Form Section ---------- */
+.form-section {
+    background: #fff;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.form-control {
+    border: 1px solid #ddd;
+    border-radius: 7px !important;
+    padding: 8px 15px !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: black !important;
+    outline: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 20px !important;
+    border-radius: 3px !important;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    background-color: #ffc107 !important;
+    border: none;
+    color: #fff !important;
+}
+
+
+/* === Phone Wraper === */
+
+.phone-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.phone-prefix {
+    background: #f0f0f0;
+    padding: 8px 11px;
+    font-size: 1rem;
+    color: #333;
+    border-right: 1px solid #ccc;
+}
+
+.phone-wrapper input {
+    border: none;
+    flex: 1;
+    padding: 8px 12px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.phone-wrapper input:focus {
+    box-shadow: none;
+}
+/* === Phone Wraper End === */
+
+
+
+/* ---------- Side Info ---------- */
+.side-info {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+
+.side-info h6 {
+    background-color: #ffc107;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-size: 15px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.side-info img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* ---------- Footer ---------- */
+
+.footer-section {
+    overflow: hidden;
+    background-color: #f1f5f9;
+    padding: 40px 20px;
+}
+.footer-section .row{
+    padding:5px 20px;
+}
+.footer-section .icon-box {
+    padding: 20px;
+}
+
+.footer-section .icon-box i {
+    margin: 0 auto;
+    border: 1px solid black;
+    padding: 14px 20px;
+    border-radius: 50%;
+    font-size: 25px;
+    color: #1b007d;
+}
+
+.footer-section h5 {
+    font-weight: 600;
+    margin: 20px 0  10px 0 ;
+}
+
+.footer-section p {
+    color: #6c757d;
+    font-size: 15px;
+}
+
+
+/* Error - Message */
+.error-message {
+    color: #e74c3c;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 8px;
+    /* background: rgba(231, 76, 60, 0.08); */
+    border-radius: 5px;
+    animation: fadeShake 0.5s ease;
+}
+
+/* Keyframes for fade + shake */
+@keyframes fadeShake {
+    0% { opacity: 0; transform: translateX(0); }
+    20% { opacity: 1; transform: translateX(-3px); }
+    40% { transform: translateX(3px); }
+    60% { transform: translateX(-3px); }
+    80% { transform: translateX(3px); }
+    100% { transform: translateX(0); }
+}
+
+
+/* Small fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}

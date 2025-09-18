@@ -196,6 +196,11 @@
 
 
 
+@media screen and (max-width: 720px) {
+    .seller{
+        display: none;
+    }
+}
 
 @media screen and (max-width: 520px) {
     .offcanva {
