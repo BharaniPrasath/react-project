@@ -3,6 +3,9 @@ import { useState } from "react";
 import { Carousel } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSave } from "@fortawesome/free-solid-svg-icons";
+
 import axios from 'axios'
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -315,12 +318,13 @@ function Seller_information() {
             <div className="left-form" >
               {/* Password Form */}
               <label>Password</label>
-              <div className="password-wrapper">
+              <div className="password-wrapper form-control">
                 <input
                   name="password"
                   type={showPassword ? "text" : "password"}
                   value={formData.password}
                   onChange={handleChange}
+                  style={{border:"none",outline:"none"}}
                   required
                 />
                 <span className="toggle-password" onClick={() => setShowPassword(!showPassword)}
@@ -330,12 +334,13 @@ function Seller_information() {
               </div>
 
               <label>Confirm Password</label>
-              <div className="password-wrapper">
+              <div className="password-wrapper form-control">
                 <input
                   name="confirmPassword"
                   type={showConfirmPassword ? "text" : "password"}
                   value={confirmPassword}
                   onChange={(e) => setConfirmPasssword(e.target.value)}
+                  style={{border:"none",outline:"none"}}
                   required
                 />
                 <span
@@ -355,7 +360,7 @@ function Seller_information() {
               <br />
               <div className="password-buttons">
                 <button type="submit" className="btn button">
-                  <i className="fa-solid fa-key" style={{ marginRight: "8px" }}></i>Save Seller
+                  <FontAwesomeIcon icon={faSave} /> Save Seller
                 </button>
               </div>
             </div>
