@@ -7,8 +7,6 @@ import Signup from './component/login/signup';
 import Seller_home from './component/seller/seller_home';
 import Seller_information from './component/seller/seller_information';
 import SellerLogin from './component/seller/seller_login';
-import Settings from './component/settings/settings';
-import PersonalInfo from './component/settings/personal';
 
 
 
@@ -24,9 +22,6 @@ function App() {
         <Route path="/seller_login" element={<SellerLogin />} />
         <Route path="/seller_information" element={<Seller_information />} />
 
-        {/* === SETTINGS === */}
-        <Route path={'/settings'} element={<Settings /> } />
-        <Route path={'/settings/personal'} element={<PersonalInfo /> } />
 
       </Routes>
     </BrowserRouter>
