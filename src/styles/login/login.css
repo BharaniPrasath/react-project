@@ -21,7 +21,7 @@
 
 /* Left panel */
 .login-left {
-  flex: 1;
+  flex: 0.7;
   background: linear-gradient(180deg, #2874f0, #5a95f5);
   color: #fff;
   padding: 40px 30px;

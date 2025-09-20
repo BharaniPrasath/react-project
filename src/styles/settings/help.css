@@ -1,0 +1,105 @@
+/* ===== Help & Support ===== */
+.help-support {
+    max-width: 100%;
+    padding: 20px 25px;
+    border-radius: 9px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    font-family: "Poppins", sans-serif;
+    background: #fff;
+}
+
+.help-support h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #04126D;
+}
+
+/* Section titles */
+.help-support h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #04126D;
+}
+
+/* Labels */
+.help-support label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Inputs & Textarea */
+.help-support input,
+.help-support select,
+.help-support textarea {
+    width: 100%;
+    /* padding: 8px; */
+    border: 1px solid #d0d0d0;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.help-support .form-control:focus,
+.help-support .form-select:focus {
+    box-shadow: none !important;
+    border-color: rgb(195, 195, 195) !important;
+    outline: none !important;
+}
+
+/* Button */
+.help-support button {
+    text-decoration: none;
+    margin-top: 10px;
+    padding: 12px 20px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background: #04126D;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.25s;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.help-support button:hover {
+    color: #fff;
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #04126D, #1f3de8);
+}
+
+/* Small text */
+.help-support small {
+    color: #666;
+}
+
+/* FAQs */
+.help-support .faqs details {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.help-support .faqs details:hover {
+    background: #f1f4ff;
+    border-color: #c7d2fe;
+}
+
+.help-support .faqs summary {
+    color: #333;
+}
+
+.help-support .faqs div {
+    margin-top: 8px;
+    color: #555;
+    line-height: 1.5;
+}

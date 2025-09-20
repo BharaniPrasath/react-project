@@ -26,12 +26,19 @@ function MyNavbar({ hidesearch, hidelike, hidelogin, hidecart }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    try {
+      await axios.post("http://localhost:8000/logout/", {}, { withCredentials: true }); // call Django logout
+    } catch (err) {
+      console.error("Logout failed", err);
+    }
+
     localStorage.removeItem("isAuthenticated");
     localStorage.removeItem("user");
-    setIsAuthenticated(false); // ✅ update state immediately
-    window.location.href = "/"; // optional redirect
+    setIsAuthenticated(false);
+    window.location.href = "/";
   };
+
 
   // ✅ Keep state in sync with localStorage (in case of login elsewhere)
   useEffect(() => {
@@ -114,7 +121,7 @@ function MyNavbar({ hidesearch, hidelike, hidelogin, hidecart }) {
         className="offcanvas-container"
       >
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Welcome</Offcanvas.Title>
+          <Offcanvas.Title> Welcome {isAuthenticated ? JSON.parse(localStorage.getItem("user"))?.username : "guest"}</Offcanvas.Title>
         </Offcanvas.Header>
 
         <Offcanvas.Body className="offcanvas-body">
@@ -146,7 +153,7 @@ function MyNavbar({ hidesearch, hidelike, hidelogin, hidecart }) {
                 Login <FaSignInAlt />
               </Link>
             ) : (
-              <button className="btn-login" onClick={handleLogout} style={{border:"none",outline:"none",background:"none",borderTop:"1px solid black"}} >
+              <button className="btn-login" onClick={handleLogout} style={{ border: "none", outline: "none", background: "none", borderTop: "1px solid black" }} >
                 Logout <FaSignOutAlt />
               </button>
             )}

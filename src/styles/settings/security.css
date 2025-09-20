@@ -1,0 +1,136 @@
+/* ===== Security & Login ===== */
+.security-info {
+    max-width: 100%;
+    padding: 20px 25px;
+    border-radius: 9px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    font-family: "Poppins", sans-serif;
+    background: #fff;
+}
+
+.security-info h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #04126D;
+}
+
+/* Labels */
+.security-info label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-control:focus {
+    box-shadow: none !important;
+    /* border-color: rgb(195, 195, 195) !important; */
+    outline: none !important;
+}
+
+/* Password wrapper */
+.password-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}   
+
+.password-wrapper input {
+    border: none;
+    flex: 1;
+    padding: 8px 12px;
+    font-size: 1rem;
+    outline: none;
+    background: transparent;
+}
+
+.password-wrapper .toggle-password {
+    padding: 0 12px;
+    cursor: pointer;
+    color: #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.25s;
+}
+
+
+
+/* Button */
+.security-info button {
+    text-decoration: none;
+    margin-top: 10px;
+    padding: 12px 20px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background: #04126D;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.25s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.security-info button:hover {
+    color: #fff;
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #04126D, #1f3de8);
+}
+
+/* Error - Message */
+.error-message {
+    color: #e74c3c;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    animation: fadeShake 0.5s ease;
+}
+
+/* Keyframes for fade + shake */
+@keyframes fadeShake {
+    0% { opacity: 0; transform: translateX(0); }
+    20% { opacity: 1; transform: translateX(-3px); }
+    40% { transform: translateX(3px); }
+    60% { transform: translateX(-3px); }
+    80% { transform: translateX(3px); }
+    100% { transform: translateX(0); }
+}
+
+/* Toggle Password Style (Blue Theme) */
+.toggle-password span {
+    color: #04126D;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 5px 12px;
+    border-radius: 6px;
+    display: inline-block;
+    transition: all 0.3s ease;
+    animation: fadeIn 0.4s ease;
+}
+
+/* Hover effect */
+.toggle-password span:hover {
+    transform: scale(1.05);
+}
+
+/* Active (click) */
+.toggle-password span:active {
+    transform: scale(0.95);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to   { opacity: 1; transform: translateY(0); }
+}

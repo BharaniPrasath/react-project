@@ -7,13 +7,24 @@ body {
     box-sizing: border-box;
 }
 
-.container-1 {
-    padding: 20px;
+
+
+.form-section{
+    width: 100%;
 }
 
+.myform{
+    display: flex;
+    padding: 10px;
+    gap: 70px;
+}
+.right-form{
+    flex: 1.6;
+}
+.left-form{
+flex: 1;}
 /* ---------- Progress Tracker ---------- */
 .progress-tracker {
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,7 +44,7 @@ body {
     font-size: 18px;
 }
 
-.progress-tracker  .label {
+.progress-tracker .label {
     margin-top: 12px;
     color: #777;
     font-size: 13px;
@@ -45,6 +56,15 @@ body {
     height: 2.5px;
     background: #ddd;
 }
+.step .label {
+  font-weight: normal;
+}
+
+.step.active-step .label {
+  font-weight: bold;
+  color: #000; /* optional: highlight */
+}
+
 
 /* Fill line for completed */
 .progress-tracker .completed~.line {
@@ -54,7 +74,7 @@ body {
 /* ---------- Form Section ---------- */
 .form-section {
     background: #fff;
-    padding: 30px;
+    padding: 20px;
     border-radius: 5px;
 }
 
@@ -81,6 +101,15 @@ body {
     background-color: #ffc107 !important;
     border: none;
     color: #fff !important;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.password-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 
@@ -113,34 +142,10 @@ body {
 .phone-wrapper input:focus {
     box-shadow: none;
 }
+
 /* === Phone Wraper End === */
 
 
-
-/* ---------- Side Info ---------- */
-.side-info {
-    background: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-
-.side-info h6 {
-    background-color: #ffc107;
-    color: #fff;
-    padding: 8px 15px;
-    border-radius: 6px;
-    font-size: 15px;
-    display: inline-block;
-    margin-bottom: 15px;
-}
-
-.side-info img {
-    width: 100%;
-    border-radius: 10px;
-}
 
 /* ---------- Footer ---------- */
 
@@ -149,16 +154,18 @@ body {
     background-color: #f1f5f9;
     padding: 40px 20px;
 }
-.footer-section .row{
-    padding:5px 20px;
+
+.footer-section .row {
+    padding: 5px 20px;
 }
+
 .footer-section .icon-box {
     padding: 20px;
 }
 
 .footer-section .icon-box i {
     margin: 0 auto;
-    border: 1px solid black;
+    border: 1px solid rgb(50, 50, 50);
     padding: 14px 20px;
     border-radius: 50%;
     font-size: 25px;
@@ -167,7 +174,7 @@ body {
 
 .footer-section h5 {
     font-weight: 600;
-    margin: 20px 0  10px 0 ;
+    margin: 20px 0 10px 0;
 }
 
 .footer-section p {
@@ -178,29 +185,54 @@ body {
 
 /* Error - Message */
 .error-message {
-    color: #e74c3c;
+    /* color: #e74c3c;/ */
     font-size: 14px;
     font-weight: 600;
     display: inline-block;
-    margin-bottom: 8px;
-    /* background: rgba(231, 76, 60, 0.08); */
-    border-radius: 5px;
+    margin-left: 7px;
+    margin-bottom: -2px !important;
     animation: fadeShake 0.5s ease;
 }
 
 /* Keyframes for fade + shake */
 @keyframes fadeShake {
-    0% { opacity: 0; transform: translateX(0); }
-    20% { opacity: 1; transform: translateX(-3px); }
-    40% { transform: translateX(3px); }
-    60% { transform: translateX(-3px); }
-    80% { transform: translateX(3px); }
-    100% { transform: translateX(0); }
+    0% {
+        opacity: 0;
+        transform: translateX(0);
+    }
+
+    20% {
+        opacity: 1;
+        transform: translateX(-3px);
+    }
+
+    40% {
+        transform: translateX(3px);
+    }
+
+    60% {
+        transform: translateX(-3px);
+    }
+
+    80% {
+        transform: translateX(3px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
 }
 
 
 /* Small fade-in animation */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-5px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
