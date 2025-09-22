@@ -7,6 +7,7 @@ import Signup from './component/login/signup';
 import Seller_home from './component/seller/seller_home';
 import Seller_information from './component/seller/seller_information';
 import SellerLogin from './component/seller/seller_login';
+import CartPage from './component/cart/addToCart';
 
 
 
@@ -17,6 +18,10 @@ function App() {
         <Route path={'/'} element={<Home />} />
         <Route path={'/login'} element={<Login />} />
         <Route path={'/signup'} element={<Signup />} />
+
+        {/* === Add to cart === */}
+        <Route path={'/addtocart'} element={<CartPage />} />
+
         {/* === SELLER === */}
         <Route path="/seller" element={<Seller_home />} />
         <Route path="/seller_login" element={<SellerLogin />} />

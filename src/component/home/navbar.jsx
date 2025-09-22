@@ -93,7 +93,7 @@ function MyNavbar({ hidesearch, hidelike, hidelogin, hidecart }) {
 
           {!hidecart && (
             <div className="cart right-side">
-              <Link to="/cart">
+              <Link to="/addtocart">
                 <FaShoppingCart />
                 <span>Cart</span>
               </Link>
@@ -131,7 +131,7 @@ function MyNavbar({ hidesearch, hidelike, hidelogin, hidecart }) {
               <Nav.Link as={Link} to="/settings" className="menu-link">
                 <FaUser /> My Profile
               </Nav.Link>
-              <Nav.Link as={Link} to="/cart" className="menu-link">
+              <Nav.Link as={Link} to="/addtocart" className="menu-link">
                 <FaShoppingCart /> Cart
               </Nav.Link>
               <Nav.Link as={Link} to="/wishlist" className="menu-link">
