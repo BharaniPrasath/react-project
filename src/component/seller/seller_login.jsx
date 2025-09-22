@@ -1,8 +1,25 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import SellerNavbar from "./seller_navbar";
+import axios from 'axios'
 
-function SellerLogin(  ) {
+function getCookie(name) {
+  let cookieValue = null;
+  if (document.cookie && document.cookie !== "") {
+    const cookies = document.cookie.split(";");
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      // Does this cookie string begin with the name we want?
+      if (cookie.substring(0, name.length + 1) === name + "=") {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+      }
+    }
+  }
+  return cookieValue;
+}
+
+function SellerLogin() {
   const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
@@ -19,15 +36,22 @@ function SellerLogin(  ) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    axios
+      .post("http://127.0.0.1:8000/seller_login/", formData, { headers: { "X-CSRFToken": getCookie("csrftoken") }, withCredentials: true })
+      .then((response) => {
+        console.log("Login response:", response.data);
+        setError("");
+
+        // ✅ Store login state
+        localStorage.setItem("isSellerAuthenticated", "true");
+        localStorage.setItem("seller", JSON.stringify({ seller_email: formData.seller_email }));
+
+        // Redirect
+        navigate("/seller");
+      })
+
     console.log("Seller login data:", formData);
-
-    // 🔹 Add validation / API call here
-    if (formData.email === "" || formData.password === "") {
-      setError("Email and password are required.");
-      return;
-    }
-
-    navigate("/seller_dashboard");
   };
 
   return (
@@ -43,10 +67,10 @@ function SellerLogin(  ) {
               {/* Email */}
               <label htmlFor="seller_email">Email Address</label>
               <input
-                type="email"
+                type="seller_email"
                 id="seller_email"
                 name="seller_email"
-                value={formData.email}
+                value={formData.seller_email}
                 onChange={handleChange}
                 required
               />
@@ -60,7 +84,7 @@ function SellerLogin(  ) {
                   type={showPassword ? "text" : "password"}
                   id="passwordField"
                   name="seller_password"
-                  value={formData.password}
+                  value={formData.seller_password}
                   onChange={handleChange}
                   required
                 />

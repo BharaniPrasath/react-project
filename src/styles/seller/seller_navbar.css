@@ -32,3 +32,11 @@
 .navbar-nav .nav-link:last-child:hover {
   color: white;
 }
+
+.navbar-nav button{
+  background: none;
+  outline: none;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+}
