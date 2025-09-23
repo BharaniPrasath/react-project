@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 import '../../styles/seller/seller_features.css'
+import { useNavigate } from "react-router-dom";
 
 function SellerFeatures() {
+  const navigate = useNavigate();
+
+  const [companyName, setCompanyName] = useState("");
+  const [isSellerAuthenticated, setIsSellerAuthenticated] = useState(
+    localStorage.getItem("isSellerAuthenticated") === "true"
+  );
+
+  useEffect(() => {
+    if (isSellerAuthenticated) {
+      const seller = localStorage.getItem("seller");
+      navigate('/addproduct')
+    }
+  }, [isSellerAuthenticated]);
+
+
   const features = [
     { icon: "bi-people", text: "45 crore+ customers" },
     { icon: "bi-wallet2", text: "7 Days Secure Payments" },

@@ -1,3 +1,238 @@
-.main-container{
-  padding: 15px;
+/* Main container layout */
+.product-main-container {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  padding: 2rem;
+  background: #f9f9f9;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Left and right side panels */
+.product-left-side {
+  flex: 2;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings */
+.product-left-side h2,
+.right-side h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #1b007d;
+  font-weight: bold;
+}
+
+/* Form elements */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+form label {
+  font-weight: 600;
+  color: #838383;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+form input {
+  margin: 10px 0;
+}
+
+form input,
+form textarea,
+form select {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(133, 192, 255, 0.1);
+  border-radius: 6px;
+  transition: all 1s;
+}
+
+.form-select {
+  padding: 13px;
+}
+
+.form-select:focus {
+  border-color: #007bff !important;
+  box-shadow: 0 0 0 2px rgba(133, 192, 255, 0.3);
+}
+
+/* Price */
+.product-pricesection {
+  display: flex;
+  gap: 80px;
+}
+
+.product-price,
+.product-discount-price {
+  width: 40%;
+}
+
+
+/* Price wrapper (₹ + input) */
+.product-price-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.product-price-wrapper span {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #444;
+}
+
+/* Seller Details */
+.product-phone-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.product-phone-container span {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.product-phone-container input {
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px !important;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.product-phone-container input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(133, 192, 255, 0.1);
+  border-radius: 6px;
+  transition: all 1s;
+}
+
+
+
+/* Buttons */
+.product-submit-button {
+  background-color: #ffc107;
+  color: #fff;
+  padding: 0.9rem 1.2rem;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-radius: 5px;
+
+}
+
+
+/* Sections spacing */
+.product-product-details,
+.product-pricesection,
+.product-seller,
+.product-product-address {
+  margin-bottom: 2rem;
+}
+
+.product-pricesection h2,
+.product-seller h2,
+.product-product-address h2 {
+  /* font-size: 1.1rem; */
+  font-weight: bold;
+  color: #1b007d;
+}
+
+.product-address-mini {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-address-mini input {
+  width: 300px;
+}
+
+
+
+/* right side */
+.product-right-side {
+  flex: 1;
+  align-items: self-start;
+  justify-content: center;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 5px;
+  color: #1b007d;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Responsive design */
+@media (max-width: 992px) {
+  .product-main-container {
+    flex-direction: column;
+  }
+
+  .product-right-side {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .product-main-container {
+    padding: 1rem;
+  }
+
+  .product-left-side,
+  .product-right-side {
+    padding: 1.2rem;
+  }
+
+  form input,
+  form textarea,
+  form select {
+    font-size: 0.95rem;
+    padding: 0.6rem 0.8rem;
+  }
+
+ .product-submit-button {
+    width: 100%;
+  }
 }
