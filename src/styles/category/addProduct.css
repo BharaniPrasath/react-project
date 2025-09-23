@@ -28,26 +28,26 @@
 }
 
 /* Form elements */
-form {
+.addproduct-form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
-form label {
+.addproduct-form label {
   font-weight: 600;
   color: #838383;
   display: block;
   margin-bottom: 0.3rem;
 }
 
-form input {
+.addproduct-forminput {
   margin: 10px 0;
 }
 
-form input,
-form textarea,
-form select {
+.addproduct-form input,
+.addproduct-form textarea,
+.addproduct-form select {
   width: 100%;
   padding: 0.7rem 0.9rem;
   font-size: 1rem;
@@ -57,20 +57,20 @@ form select {
   transition: all 0.2s ease;
 }
 
-form input:focus,
-form textarea:focus,
-form select:focus {
+.addproduct-form input:focus,
+.addproduct-form textarea:focus,
+.addproduct-form select:focus {
   border-color: #007bff;
   box-shadow: 0 0 0 2px rgba(133, 192, 255, 0.1);
   border-radius: 6px;
   transition: all 1s;
 }
 
-.form-select {
+.addproduct-form-select {
   padding: 13px;
 }
 
-.form-select:focus {
+.addproduct-form-select:focus {
   border-color: #007bff !important;
   box-shadow: 0 0 0 2px rgba(133, 192, 255, 0.3);
 }
@@ -225,9 +225,9 @@ form select:focus {
     padding: 1.2rem;
   }
 
-  form input,
-  form textarea,
-  form select {
+  .addproduct-form input,
+  .addproduct-form textarea,
+  .addproduct-form select {
     font-size: 0.95rem;
     padding: 0.6rem 0.8rem;
   }

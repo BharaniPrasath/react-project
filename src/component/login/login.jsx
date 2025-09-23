@@ -72,6 +72,7 @@ function Login() {
           {/* Right Section */}
           <div className="login-right">
             <h2>Welcome!</h2>
+            <br />
 
             <form onSubmit={handleSubmit} method="POST">
               {/* Username */}
@@ -86,7 +87,6 @@ function Login() {
                 />
               </div>
               <br />
-
               {/* Password */}
               <label>Password</label>
               <div className="password-wrapper">

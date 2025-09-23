@@ -63,9 +63,9 @@
 }
 
 .signup-right input {
-  padding: 9px 12px;
+  padding: 11px 12px;
   border: 1px solid #ccc;
-  border-radius: 6px;
+  border-radius: 4px;
   font-size: 14px;
   outline: none;
   transition: border 0.2s ease;

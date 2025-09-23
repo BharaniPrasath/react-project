@@ -16,7 +16,7 @@ function AddProduct() {
       <div className='product-main-container'>
         <div className='product-left-side'>
           <h2>Add Your Product</h2>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className='addproduct-form'> 
             <div className='product-details'>
               <label htmlFor="productName">Product Name</label>
               <input type="text" name='productName' placeholder='Ex : Iphone 17 pro max(256)' required />
