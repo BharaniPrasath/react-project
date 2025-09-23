@@ -8,6 +8,7 @@ import Seller_home from './component/seller/seller_home';
 import Seller_information from './component/seller/seller_information';
 import SellerLogin from './component/seller/seller_login';
 import CartPage from './component/cart/addToCart';
+import AddProduct from './component/cart/addProduct';
 
 
 
@@ -21,11 +22,14 @@ function App() {
 
         {/* === Add to cart === */}
         <Route path={'/addtocart'} element={<CartPage />} />
+        <Route path={'/addProduct'} element={<AddProduct />} />
+
 
         {/* === SELLER === */}
         <Route path="/seller" element={<Seller_home />} />
         <Route path="/seller_login" element={<SellerLogin />} />
         <Route path="/seller_information" element={<Seller_information />} />
+
 
 
       </Routes>

@@ -38,7 +38,9 @@ function SellerNavbar({ hideStartSelling, hidelogin }) {
             <Container fluid className="container-nav">
                 <div className="d-flex align-items-center">
                     <Navbar.Brand as={Link} to="/">Shopshy</Navbar.Brand>
-                    <Navbar.Brand as={Link} to="/seller">Seller Hub</Navbar.Brand>
+                    {!isSellerAuthenticated?
+                    <Navbar.Brand as={Link} to="/seller">Seller Hub</Navbar.Brand>:
+                    <Navbar.Brand as={Link} to="/addproduct">Seller Hub</Navbar.Brand>}
                 </div>
 
                 <Navbar.Toggle aria-controls="navbarNav" />

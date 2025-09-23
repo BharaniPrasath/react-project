@@ -38,18 +38,25 @@ function SellerLogin() {
     e.preventDefault();
 
     axios
-      .post("http://127.0.0.1:8000/seller_login/", formData, { headers: { "X-CSRFToken": getCookie("csrftoken") }, withCredentials: true })
+      .post("http://127.0.0.1:8000/seller_login/", formData, {
+        headers: { "X-CSRFToken": getCookie("csrftoken") },
+        withCredentials: true
+      })
       .then((response) => {
-        console.log("Login response:", response.data);
-        setError("");
-
-        // ✅ Store login state
+        // Success
+        setError(""); // clear error
         localStorage.setItem("isSellerAuthenticated", "true");
         localStorage.setItem("seller", JSON.stringify({ seller_email: formData.seller_email }));
-
-        // Redirect
-        navigate("/seller");
+        navigate("/addProduct");
       })
+      .catch((error) => {
+        // Error from backend
+        if (error.response && error.response.data && error.response.data.error) {
+          setError(error.response.data.error);  // 👈 show backend error (e.g., "Invalid email or password")
+        } else {
+          setError("Something went wrong. Please try again."); // fallback
+        }
+      });
 
     console.log("Seller login data:", formData);
   };
@@ -97,7 +104,8 @@ function SellerLogin() {
               </div>
 
               {/* Error */}
-              {error && <div className="error-message">{error}</div>}
+              {error &&
+              <div className="error-message">{error}</div>}
 
               {/* Links */}
               <div>
