@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import SellerNavbar from '../seller/seller_navbar'
+import axios from 'axios';
 
 import '../../styles/category/addProduct.css'
 
 function AddProduct() {
+  const fileInput1Ref = useRef(null);
+  const fileInput2Ref = useRef(null);
+  const fileInput3Ref = useRef(null);
 
 
   const [formData, setFormData] = useState({
@@ -16,13 +20,12 @@ function AddProduct() {
     discountPrice: "",
     productSellerName: "",
     productCompanyName: "",
-    companyLocation: "",
+    sellerPhone: "",
+    sellerEmail: "",
     productAddress: "",
     productState: "",
     productCountry: "",
     productPincode: "",
-    sellerPhone: "",
-    sellerEmail: "",
     productImage1: null,
     productImage2: null,
     productImage3: null,
@@ -59,6 +62,39 @@ function AddProduct() {
   const handleSubmit = (e) => {
     e.preventDefault()
 
+    const formDataToSend = new FormData();
+    Object.keys(formData).forEach((key) => {
+      formDataToSend.append(key, formData[key]);
+    });
+    axios
+      .post('http://127.0.0.1:8000/addproduct/', formData, { headers: { "Content-Type": "multipart/form-data", }, withCredentials: true, })
+      .then(res => {
+        console.log(res.data);
+        setFormData({
+          productName: "",
+          brandName: "",
+          productDescription: "",
+          productHighlight: "",
+          productCategory: "all",
+          productPrice: "",
+          discountPrice: "",
+          productSellerName: "",
+          productCompanyName: "",
+          sellerPhone: "",
+          sellerEmail: "",
+          productAddress: "",
+          productState: "",
+          productCountry: "",
+          productPincode: "",
+        })
+        // clear file inputs manually
+        if (fileInput1Ref.current) fileInput1Ref.current.value = "";
+        if (fileInput2Ref.current) fileInput2Ref.current.value = "";
+        if (fileInput3Ref.current) fileInput3Ref.current.value = "";
+      })
+      .catch(err => {
+        console.log("Error on adding product ", err);
+      })
   }
 
   return (
@@ -113,27 +149,39 @@ function AddProduct() {
                 <label htmlFor="prodctPrice">Price</label>
                 <div className='product-price-wrapper'>
                   <span>₹</span>
-                  <input type="text" name="productPrice" inputMode="decimal" placeholder='99999.99' value={formData.productPrice}
-                    onInput={(e) => {
-                      e.target.value = e.target.value.replace(/[^0-9.]/g, "");
-                    }}
+                  <input
+                    type="text"
+                    name="productPrice"
+                    inputMode="decimal"
+                    placeholder="124000.00"
+                    value={formData.productPrice}
                     onChange={(e) => {
-                      handleChange(e);
                       let value = e.target.value;
-                      // prevent multiple dots
-                      if ((value.match(/\./g) || []).length > 1) {
-                        value = value.substring(0, value.length - 1);
+
+                      // Remove anything that's not a number or dot
+                      value = value.replace(/[^0-9.]/g, "");
+
+                      // Prevent multiple dots
+                      const dotCount = (value.match(/\./g) || []).length;
+                      if (dotCount > 1) {
+                        value = value.slice(0, -1);
                       }
-                      // limit to 2 decimal places
+
+                      // Limit to 2 decimal places
                       if (value.includes(".")) {
                         const [intPart, decimalPart] = value.split(".");
-                        if (decimalPart.length > 2) {
-                          value = `${intPart}.${decimalPart.slice(0, 2)}`;
-                        }
+                        value = `${intPart}.${decimalPart.slice(0, 2)}`;
                       }
-                      e.target.value = value;
+
+                      // Update state
+                      setFormData({
+                        ...formData,
+                        productPrice: value,
+                      });
                     }}
-                    required />
+                    required
+                  />
+
                 </div>
               </div>
 
@@ -142,24 +190,35 @@ function AddProduct() {
                 <label htmlFor="discountPrice">Discount Price</label>
                 <div className='product-price-wrapper'>
                   <span>₹</span>
-                  <input type="text" name="discountPrice" inputMode="decimal" value={formData.discountPrice} placeholder='190.90(optional)'
-                    onInput={(e) => {
-                      e.target.value = e.target.value.replace(/[^0-9.]/g, "");
-                    }}
+                  <input
+                    type="text"
+                    name="discountPrice"
+                    inputMode="decimal"
+                    value={formData.discountPrice}
+                    placeholder="190.90 (optional)"
                     onChange={(e) => {
                       let value = e.target.value;
+                      value = value.replace(/[^0-9.]/g, "");
                       if ((value.match(/\./g) || []).length > 1) {
                         value = value.substring(0, value.length - 1);
                       }
+
+                      // limit to 2 decimals
                       if (value.includes(".")) {
                         const [intPart, decimalPart] = value.split(".");
                         if (decimalPart.length > 2) {
                           value = `${intPart}.${decimalPart.slice(0, 2)}`;
                         }
                       }
-                      e.target.value = value;
+
+                      // update state
+                      setFormData({
+                        ...formData,
+                        discountPrice: value,
+                      });
                     }}
                   />
+
                 </div>
               </div>
             </div>
@@ -256,6 +315,7 @@ function AddProduct() {
                 <div>
                   <input
                     type="file"
+                    ref={fileInput2Ref}
                     name="productImage2"
                     className="product-image"
                     accept=".jpg,.jpeg,.png"
@@ -267,6 +327,7 @@ function AddProduct() {
                 <div>
                   <input
                     type="file"
+                    ref={fileInput3Ref}
                     name="productImage3"
                     className="product-image"
                     accept=".jpg,.jpeg,.png"
@@ -280,6 +341,7 @@ function AddProduct() {
               <div className='product-right-image'>
                 <input
                   type="file"
+                  ref={fileInput1Ref}
                   name="productImage1"
                   className="product-image"
                   accept=".jpg,.jpeg,.png"
