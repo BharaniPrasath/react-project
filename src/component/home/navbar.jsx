@@ -101,7 +101,7 @@ function MyNavbar({ hidesearch, hidelike, hidelogin, hidecart }) {
           )}
 
           <div className="seller right-side">
-            <Link to="/seller" target="_blank">
+            <Link to="/seller">
               <FaStore /> <span>Become a Seller</span>
             </Link>
           </div>
