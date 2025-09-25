@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Navbar, Nav, Container, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../../styles/seller/seller_navbar.css";
 import axios from "axios";
 
 function SellerNavbar({ hideStartSelling, hidelogin }) {
+    const navigate = useNavigate(); 
 
     const [isSellerAuthenticated, setIsSellerAuthenticated] = useState(
         localStorage.getItem("isSellerAuthenticated") === "true")
