@@ -59,11 +59,6 @@ function AddProduct() {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-
-
-
-
-
   }
 
   return (

@@ -18,7 +18,7 @@ function SellerNavbar({ hideStartSelling, hidelogin }) {
         localStorage.removeItem('isSellerAuthenticated')
         localStorage.removeItem('seller')
         setIsSellerAuthenticated(false)
-        window.location.href = "/seller";
+        navigate("/seller");
     }
 
     // ✅ Keep state in sync with localStorage (in case of login elsewhere)
