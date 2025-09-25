@@ -28,37 +28,47 @@ function SellerLogin() {
     seller_email: "",
     seller_password: ""
   });
+  const [isSellerAuthenticated, setIsSellerAuthenticated] = useState(
+    localStorage.getItem("isSellerAuthenticated") === "true"
+  );
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(""); // clear previous error
 
-    axios
-      .post("http://127.0.0.1:8000/seller_login/", formData, {
-        headers: { "X-CSRFToken": getCookie("csrftoken") },
-        withCredentials: true
-      })
-      .then((response) => {
-        // Success
-        setError(""); // clear error
-        localStorage.setItem("isSellerAuthenticated", "true");
-        localStorage.setItem("seller", JSON.stringify({ seller_email: formData.seller_email }));
-        navigate("/addProduct");
-      })
-      .catch((error) => {
-        // Error from backend
-        if (error.response && error.response.data && error.response.data.error) {
-          setError(error.response.data.error);  // 👈 show backend error (e.g., "Invalid email or password")
-        } else {
-          setError("Something went wrong. Please try again."); // fallback
+    try {
+      const response = await axios.post(
+        "http://127.0.0.1:8000/seller_login/",
+        formData,
+        {
+          headers: { "X-CSRFToken": getCookie("csrftoken") },
+          withCredentials: true,
         }
-      });
+      );
 
-    console.log("Seller login data:", formData);
+      // ✅ only if login is successful
+      localStorage.setItem("isSellerAuthenticated", "true");
+      localStorage.setItem(
+        "seller",
+        JSON.stringify({ seller_email: formData.seller_email })
+      );
+
+      setIsSellerAuthenticated(true); // update React state
+      navigate("/addProduct"); // redirect to dashboard
+      console.log("Seller login successful", response.data);
+    } catch (err) {
+      if (err.response && err.response.data && err.response.data.error) {
+        setError(err.response.data.error);
+      } else {
+        setError("Something went wrong. Please try again.");
+      }
+      console.error("Login error", err);
+    }
   };
 
   return (
@@ -105,7 +115,7 @@ function SellerLogin() {
 
               {/* Error */}
               {error &&
-              <div className="error-message">{error}</div>}
+                <div className="error-message">{error}</div>}
 
               {/* Links */}
               <div>
