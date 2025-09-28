@@ -42,15 +42,17 @@ function ShowProduct() {
         {/* =============================================================================================================== */}
         {/* showProduct-container1 */}
 
+        <div className="image-container">
 
-        <div className='showProduct-image'>
-          <div className="left-image">
-            <div><img src={`http://127.0.0.1:8000/${showMYProduct.productImage2}/`} alt="" /></div>
-            <div><img src={`http://127.0.0.1:8000/${showMYProduct.productImage3}/`} alt="" /></div>
-          </div>
+          <div className='showProduct-image'>
+            <div className="left-image">
+              <div><img src={`http://127.0.0.1:8000/${showMYProduct.productImage2}/`} alt="" /></div>
+              <div><img src={`http://127.0.0.1:8000/${showMYProduct.productImage3}/`} alt="" /></div>
+            </div>
 
-          <div className="right-image">
-            <div><img src={`http://127.0.0.1:8000/${showMYProduct.productImage1}/`} alt="" /></div>
+            <div className="right-image">
+              <img src={`http://127.0.0.1:8000/${showMYProduct.productImage1}/`} alt="" />
+            </div>
           </div>
         </div>
 
@@ -106,6 +108,7 @@ function ShowProduct() {
             </div>
 
           </div>
+          {/* ================================================================================= */}
           <div className="specification">
             <h5>Specifications</h5>
             {/* warrenty */}
@@ -335,8 +338,6 @@ function ShowProduct() {
             </div>
 
           </div>
-
-
         </div>
       </div>
     </>
