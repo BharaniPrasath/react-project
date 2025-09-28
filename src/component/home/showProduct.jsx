@@ -42,7 +42,7 @@ function ShowProduct() {
         {/* =============================================================================================================== */}
         {/* showProduct-container1 */}
 
-        <div className="image-container">
+        <div className="product-image-container">
 
           <div className='showProduct-image'>
             <div className="left-image">

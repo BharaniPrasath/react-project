@@ -7,9 +7,9 @@
     border-radius: 4px;
 }
 
-.image-container {
+.product-image-container {
     height: 420px;
-    width: 40%;
+    width: 46%;
 }
 
 .showProduct-image {
@@ -57,10 +57,10 @@
 
 .showProduct-image .right-image img {
     object-fit: cover;
-    width: 300px;
     height: 400px;
     max-width: 400px;
 }
+
 
 
 
@@ -198,7 +198,7 @@
         flex-direction: column;
     }
 
-    .image-container {
+    .product-image-container {
         display: flex;
         width: 100%;
         align-items: center;
