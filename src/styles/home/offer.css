@@ -46,7 +46,7 @@
 .deal-products{
     height: 77%;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
     gap: 50px;
     overflow: scroll;
@@ -70,45 +70,37 @@
     margin: 40px 15px;
     padding: 20px 20px;
     border-radius: 4px;
-    height: 390px;
+    height: 410px;
     background-color: #fff;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .new-launch-boxes{
-    height: 80%;
-    margin: 30px 0;
+    height: 90%;
     display: flex;
-    justify-content: space-between;
-    /* gap: 30px; */
+    justify-content: flex-start;
+    gap: 50px;
     align-items: center;
     overflow: scroll;
-
 }
 .new-launch-box{
-    width: 580px;
-    gap: 30px;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-
+    padding: 0 10px;
+    /* height: 100%; */
 }
-.new-launch-box span{
-    font-size: 11px;
-    width: 180px;
+.new-launch-box a{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: end;
-}
-.new-launch-box span h4{
+    align-items: center;
+    gap: 20px;
+    text-decoration: none;
+    color: rgb(78, 78, 78);
     font-weight: bold;
-    font-size: 32px;
 }
 .new-launch-box img{
-    border-radius:1px 5px 5px 1px ;
-    width: 270px;
+    width: 340px;
+    height: 240px;
     object-fit: contain;
+    border-radius:1px;
 }
 
 

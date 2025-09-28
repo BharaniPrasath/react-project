@@ -1,0 +1,603 @@
+.mobile-product-form {
+  margin: 20px;
+  padding: 20px 40px;
+  border-radius: 4px;
+  background: #fff;
+}
+
+
+/* Container for each input group */
+.form-group {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+/* Label styling */
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+  font-size: 14px;
+}
+
+/* Input styling */
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+/* Focus state */
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #4a90e2;
+}
+
+/* Placeholder text */
+.form-group input::placeholder,
+.form-group option::placeholder,
+.form-group textarea::placeholder {
+  color: #aaa;
+}
+
+select option[value=""] {
+  color: #aaa;
+}
+
+
+/* ===================================== */
+
+/* General info */
+.general-info {
+  margin: 20px 0;
+}
+
+.general-info .general1 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.general1 div {
+  width: 20%;
+}
+
+/* Dimensions */
+.dimension {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 90px;
+  margin-top: 20px;
+}
+
+.dimension-mm {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  width: 185px;
+  position: relative;
+}
+
+.dimension-mm span {
+  position: absolute;
+  right: 10px;
+  top: 3px;
+  font-size: 20px;
+  color: rgb(149, 149, 149);
+  font-weight: bold;
+}
+
+.dimension-mm input {
+  width: 85%;
+  border: none;
+  outline: none;
+}
+
+/* ===================================== */
+/* Body and sim */
+
+.body {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 90px;
+}
+
+/* Display 1*/
+.display {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.display .display1,
+.display .display2 {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.display1 div:first-child,
+.display2 div:first-child {
+  width: 500px;
+}
+
+/* display size */
+.inch,
+.refresh {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  width: 135px;
+  position: relative;
+}
+
+.inch span,
+.refresh span {
+  position: absolute;
+  right: 15px;
+  font-size: 16px;
+  color: rgb(149, 149, 149);
+  font-weight: bold;
+}
+
+.inch input,
+.refresh input {
+  width: 85%;
+  border: none;
+  outline: none;
+}
+
+/* pixel */
+.display-resolution {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-weight: bold;
+  color: rgb(149, 149, 149);
+}
+
+.display-resolution input {
+  width: 100px;
+}
+
+/* ===================================== */
+
+.platform-info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 20px;
+  gap: 97px;
+}
+
+.platform-info select,
+.platform-info input {
+  width: 270px;
+}
+
+/* ===================================== */
+
+.memory {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+  margin-top: 20px;
+}
+
+.memory div:first-child {
+  width: 270px;
+}
+
+.ram,
+.rom {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  width: 135px;
+  position: relative;
+}
+
+.ram span,
+.rom span {
+  position: absolute;
+  right: 15px;
+  font-size: 16px;
+  color: rgb(149, 149, 149);
+  font-weight: bold;
+}
+
+.ram input,
+.rom input {
+  width: 85%;
+  border: none;
+  outline: none;
+}
+
+/* ===================================== */
+
+/* Camera */
+
+/* Back camera */
+.camera .camera1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.camera1 .all-lens,
+.camera2 .all-lens {
+  display: flex;
+  align-items: center;
+  gap: 70px;
+}
+
+.lens {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  width: 100px;
+  position: relative;
+}
+
+.lens span {
+  position: absolute;
+  right: 15px;
+  font-size: 16px;
+  color: rgb(149, 149, 149);
+  font-weight: bold;
+}
+
+.lens input {
+  width: 85%;
+  border: none;
+  outline: none;
+}
+
+.optical {
+  width: 180px;
+}
+
+.camera1 select,
+.camera2 select {
+  width: 400px;
+}
+
+/* Front camera */
+.camera2 {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin-top: 20px;
+}
+
+/* ==================================== */
+
+.sound {
+  display: flex;
+  align-items: center;
+  gap: 70px;
+  margin-top: 20px;
+}
+
+.sound label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 17px;
+  margin-left: 5px;
+  color: rgb(94, 94, 94);
+  font-weight: bold;
+}
+
+.sound input[type='checkbox'] {
+  transform: scale(1.3);
+}
+
+/* ====================================== */
+/* Additional features */
+
+/* wireless-features */
+.wireless-features {
+  display: flex;
+  align-items: center;
+  gap: 136px;
+  margin-top: 30px;
+}
+
+.wireless-features label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 17px;
+  margin-left: 5px;
+  color: rgb(94, 94, 94);
+  font-weight: bold;
+}
+
+.wireless-features input[type='checkbox'] {
+  transform: scale(1.3);
+}
+
+.other-common {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.other-common input {
+  width: 400px;
+}
+
+/* ===================================== */
+
+/* Fingerprint */
+.fingerprint-security {
+  display: flex;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.fingerprint-security label {
+  font-size: 17px;
+}
+
+.fingerprint-security div:first-child {
+  width: 400px;
+}
+
+.fingerprint-security .face-unlock label {
+  padding-top: 10px;
+  padding-left: 15px;
+}
+
+.fingerprint-security .face-unlock input[type="radio"] {
+  padding-left: 10px;
+  border: 1px solid;
+}
+
+/* ============================================= */
+
+/* battery */
+
+.battery {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* battery1 */
+.battery1,
+.battery2 {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin-top: 20px;
+}
+
+.battery1 div:first-child {
+  width: 300px;
+}
+
+.batteryMAH {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  width: 150px;
+  position: relative;
+  margin-left: 5px;
+}
+
+.batW {
+  width: 100px;
+}
+
+.batteryMAH span {
+  position: absolute;
+  right: 15px;
+  font-size: 16px;
+  color: rgb(149, 149, 149);
+  font-weight: bold;
+}
+
+.batteryMAH input {
+  width: 85%;
+  border: none;
+  outline: none;
+}
+
+/* battery2 */
+.battery2 {
+  gap: 80px;
+}
+
+.battery2 .wirelessCharging {
+  display: flex;
+  gap: 10px;
+  border: 1px solid;
+}
+
+.wirelessCharging input {
+  padding: 20px;
+}
+
+.battery2 input[type='checkbox'] {
+  transform: scale(1.3);
+}
+
+.wirelessChargingSupport {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 5px;
+}
+
+.wirelesschar {
+  padding-bottom: 10px;
+}
+
+/* ============================================= */
+/* other speification */
+.other-specs {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin-top: 20px;
+}
+
+.other-specs div:first-child {
+  width: 400px;
+}
+
+/* ================================================ */
+/* Seller DEtails */
+.product-seller {
+  margin-top: 20px;
+  margin-left: 5px;
+}
+
+.product-seller1,
+.product-seller2 {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.product-seller1 div,
+.product-seller2 div {
+  width: 500px;
+}
+
+.product-seller2 .seller-phone {
+  border-radius: 4px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.product-seller2 .seller-phone input {
+  width: 100%;
+  padding-left: 60px;
+}
+
+.seller-phone span {
+  left: 6px;
+  position: absolute;
+  margin-left: 10px;
+  font-size: 16px;
+  color: rgb(149, 149, 149);
+  font-weight: bold;
+}
+
+/* ================================================ */
+/* Product image */
+.product-images {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 40px;
+  margin: 20px 0 30px 5px;
+}
+
+.product-images div {
+  width: 370px;
+}
+
+.product-images .removeImageButton {
+  margin-left: 20px;
+  border: none;
+  outline: none;
+  background: none;
+  color: #fff;
+  background-color: #1b007d;
+  padding: 7px 20px;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+/* ===================================================== */
+/* Shipping Address */
+.product-address .address2 {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.address1 div{
+  width: 980px;
+}
+.address2 div{
+  width: 300px;
+}
+
+/* ====================================================== */
+/* Product price */
+
+.product-price{
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin: 20px 0 20px 5px;
+}
+.product-original-price , .product-discount-price {
+  border-radius: 4px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.product-original-price input , .product-discount-price input{
+  width: 100%;
+  padding-left: 40px;
+}
+
+.product-original-price span ,.product-discount-price span {
+  left: 6px;
+  position: absolute;
+  margin-left: 10px;
+  font-size: 16px;
+  color: rgb(149, 149, 149);
+  font-weight: bold;
+}
+
+
+/* ========================================================= */
+/* product-submit-btn */
+.product-submit-btn{
+  margin-bottom: 20px;
+  border: none;
+  outline: none;
+  background: none;
+  color: #fff;
+  background-color: #1b007d;
+  padding: 10px 40px;
+  border-radius: 3px;
+  font-weight: bold;
+}

@@ -1,0 +1,166 @@
+.showProduct-container {
+    display: flex;
+    margin: 20px;
+    padding: 20px 20px;
+    gap: 30px;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+
+
+.showProduct-image {
+    position: sticky;
+    top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 40%;
+    height: 350px;
+    overflow: hidden;
+}
+
+/* left image */
+
+.showProduct-image .left-image {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+    width: 20%;
+}
+
+.showProduct-image .left-image div {
+    width: 100px;
+    height: 120px;
+}
+
+.showProduct-image .left-image div img {
+    width: 90%;
+    height: 70%;
+    padding: 6px;
+    object-fit: contain;
+    border-radius: 6px;
+    border: 1px solid rgb(206, 205, 205);
+}
+
+
+/* Main image */
+.showProduct-image .right-image {
+    width: 100%;
+}
+
+.showProduct-image .right-image div img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/* ================================================= */
+/* right container */
+.showProduct-container2 {
+    width: 67%;
+}
+.showProduct-container2 h3{
+    font-weight: bold;
+}
+.review{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+.review span:first-child{
+    background-color: green;
+    color:#fff;
+    padding: 2px 9px;
+    border-radius: 4px;
+}
+.review span{
+    color: rgb(130, 130, 130);
+    font-weight: bold;
+}
+/* Price */
+.price{
+    color: rgb(50, 50, 50);
+    font-weight: 600;
+    margin-top: 15px;
+    line-height: 20px;
+}
+.price p:first-child{
+    color: rgb(18, 157, 18);
+}
+.org-price{
+    display: flex;
+    gap: 10px;
+}
+
+.org-price span:first-child{
+    font-weight: bold;
+    font-size: 27px;
+}
+.org-price span:nth-child(2){
+    color: rgb(118, 117, 117);
+}
+.org-price span:last-child{
+    color: rgb(18, 157, 18);
+}
+/* Warrenty msg */
+.warrenty-msg{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-top: 40px;
+    font-size: 14px;
+}
+.warrenty-msg p:first-child{
+    background-color: #1b007d;
+    color: #fff;
+    padding: 4px 16px;
+
+}
+/* Seller */
+/* Highlight */
+.highlight ,.seller-details{
+    display: flex;
+    color: #666666;
+    gap: 30px;  
+    font-size: 14px;
+    line-height: 30px;
+    font-weight: 600;
+}
+.seller-details{
+    gap: 80px;
+}
+/* ==================================================== */
+.specification{
+    margin-top: 20px;
+    border: 1px solid rgb(236, 230, 230);
+}
+.specification h5{
+    padding: 20px 30px;
+    border-bottom: 1px solid rgb(236, 230, 230);
+}
+/* Warrenty */
+.specification .warranty-spe h6{
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #414040;
+}
+.specification .warranty-spe{
+    padding: 20px 30px;
+    line-height: 40px;
+    border-bottom: 1px solid rgb(236, 230, 230);
+}
+.warranty-spe div{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+.warranty-spe div span:first-child{
+    width: 190px;
+    color: #666666;
+}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import axios from 'axios';
 import { Offcanvas, Nav } from "react-bootstrap";
 import {
   FaSignInAlt,
@@ -17,7 +18,7 @@ import {
 import search from "../../assets/search.png";
 import "../../styles/home/navbar.css";
 
-function MyNavbar({ hidesearch, hidelike, hidelogin, hidecart }) {
+function MyNavbar({ hidesearch, hidelike, hidelogin, hidecart,hideseller }) {
   const [show, setShow] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(
     localStorage.getItem("isAuthenticated") === "true"
@@ -99,12 +100,13 @@ function MyNavbar({ hidesearch, hidelike, hidelogin, hidecart }) {
               </Link>
             </div>
           )}
-
+          {!hideseller && (
           <div className="seller right-side">
             <Link to="/seller">
               <FaStore /> <span>Become a Seller</span>
             </Link>
           </div>
+          )}
 
           {/* Offcanvas Trigger */}
           <a className="offcanva" onClick={handleShow}>

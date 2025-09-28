@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import {Link} from 'react-router-dom'
+import axios from 'axios';
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../styles/home/offer.css";
+
+
+// offer images
 
 import ac from '../../assets/offer_images/ac.png'
 import fridge from '../../assets/offer_images/fridge.png'
@@ -13,19 +19,31 @@ import cpu from '../../assets/offer_images/gaming_cpu.png'
 import watches from '../../assets/offer_images/watches.png'
 import laptop from '../../assets/offer_images/laptops.png'
 
+
 function Offer() {
+  const [mobileProduct, setMobileProduct] = useState([])
   const offer_img = [
     { id: 1, name: "AC", img: ac },
     { id: 2, name: "Refrigerators", img: fridge },
     { id: 3, name: "Washine Machine", img: washing_machine },
     { id: 4, name: "Microwave oven", img: microwave },
   ]
-  const right_offer=[
+  const right_offer = [
     { id: 1, name: "Gaming Laptops", img: laptop },
     { id: 2, name: "Smart Watches", img: watches },
     { id: 3, name: "Gaming Components", img: cpu },
     { id: 4, name: "Mobile Accesories", img: mobile },
   ]
+
+  useEffect(() => {
+    axios.get('http://127.0.0.1:8000/getProduct/')
+      .then(res => {
+        setMobileProduct(res.data.mobileProduct)
+      })
+      .catch(err => {
+        console.log("Error on fetching data ", err)
+      })
+  }, [])
 
   return (
     <div>
@@ -68,40 +86,35 @@ function Offer() {
         </Row>
       </Container>
 
+      {/* ====================================================================================================================================== */}
+
+
+      {/* New arrivals */}
+
       <div className="new-launch-container">
         <h5>New Arrivals !</h5>
         <div className="new-launch-boxes">
-          <div className="new-launch-box">
-            <span><p>Smart Mobile</p><h4>Iphone 17</h4></span>
-            <img src="https://www.apple.com/newsroom/images/2025/09/apple-debuts-iphone-17/tile/Apple-iPhone-17-hero-250909-lp.jpg.og.jpg?202509091836" alt="" />
-          </div>
-          <div className="new-launch-box">
-            <span><p>Smart Mobile</p><h4>Iphone 17</h4></span>
-            <img src="https://www.apple.com/newsroom/images/2025/09/apple-debuts-iphone-17/tile/Apple-iPhone-17-hero-250909-lp.jpg.og.jpg?202509091836" alt="" />
-          </div>
-          <div className="new-launch-box">
-            <span><p>Smart Mobile</p><h4>Iphone 17</h4></span>
-            <img src="https://www.apple.com/newsroom/images/2025/09/apple-debuts-iphone-17/tile/Apple-iPhone-17-hero-250909-lp.jpg.og.jpg?202509091836" alt="" />
-          </div>
+          {mobileProduct.map((product) => (
+            <div key={product.id} className="new-launch-box">
+              <Link to={`showproduct/${product.id}`}>
+                <img src={`http://127.0.0.1:8000/${product.productImage1}`} alt="" />
+                <p>{product.productName}</p>
+              </Link>
+            </div>
+          ))}
         </div>
       </div>
+
+
+      {/* ====================================================================================================================================== */}
+      {/* Deal container */}
       <div className="deal-container">
         <h5>Deal of the Month</h5>
         <div className="deal-products">
           <div className="deal"><img src="https://png.pngtree.com/png-clipart/20230927/original/pngtree-laptop-color-illustration-png-image_13136754.png" alt="" /><span>Laptops</span><span className="deal-price">From ₹27000</span></div>
-          <div className="deal"><img src="https://png.pngtree.com/png-clipart/20230927/original/pngtree-laptop-color-illustration-png-image_13136754.png" alt="" /><span>Laptops</span><span className="deal-price">From ₹27000</span></div>
-          <div className="deal"><img src="https://png.pngtree.com/png-clipart/20230927/original/pngtree-laptop-color-illustration-png-image_13136754.png" alt="" /><span>Laptops</span><span className="deal-price">From ₹27000</span></div>
-          <div className="deal"><img src="https://png.pngtree.com/png-clipart/20230927/original/pngtree-laptop-color-illustration-png-image_13136754.png" alt="" /><span>Laptops</span><span className="deal-price">From ₹27000</span></div>
-          <div className="deal"><img src="https://png.pngtree.com/png-clipart/20230927/original/pngtree-laptop-color-illustration-png-image_13136754.png" alt="" /><span>Laptops</span><span className="deal-price">From ₹27000</span></div>
-          <div className="deal"><img src="https://png.pngtree.com/png-clipart/20230927/original/pngtree-laptop-color-illustration-png-image_13136754.png" alt="" /><span>Laptops</span><span className="deal-price">From ₹27000</span></div>
-          <div className="deal"><img src="https://png.pngtree.com/png-clipart/20230927/original/pngtree-laptop-color-illustration-png-image_13136754.png" alt="" /><span>Laptops</span><span className="deal-price">From ₹27000</span></div>
-          <div className="deal"><img src="https://png.pngtree.com/png-clipart/20230927/original/pngtree-laptop-color-illustration-png-image_13136754.png" alt="" /><span>Laptops</span><span className="deal-price">From ₹27000</span></div>
-          <div className="deal"><img src="https://png.pngtree.com/png-clipart/20230927/original/pngtree-laptop-color-illustration-png-image_13136754.png" alt="" /><span>Laptops</span><span className="deal-price">From ₹27000</span></div>
-          <div className="deal"><img src="https://png.pngtree.com/png-clipart/20230927/original/pngtree-laptop-color-illustration-png-image_13136754.png" alt="" /><span>Laptops</span><span className="deal-price">From ₹27000</span></div>
         </div>
       </div>
 
-      {/* New Launch Container */}
 
     </div>
 

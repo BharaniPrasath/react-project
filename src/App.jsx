@@ -8,7 +8,8 @@ import Seller_home from './component/seller/seller_home';
 import Seller_information from './component/seller/seller_information';
 import SellerLogin from './component/seller/seller_login';
 import CartPage from './component/cart/addToCart';
-import AddProduct from './component/cart/addProduct';
+import AddmobileProduct from './component/cart/addmobileProduct';
+import ShowProduct from './component/home/showProduct';
 
 
 
@@ -22,7 +23,8 @@ function App() {
 
         {/* === Add to cart === */}
         <Route path={'/addtocart'} element={<CartPage />} />
-        <Route path={'/addProduct'} element={<AddProduct />} />
+        <Route path={'/addmobileproduct'} element={<AddmobileProduct />} /> 
+        <Route path={'/showproduct/:id/'} element={<ShowProduct />} /> 
 
 
         {/* === SELLER === */}

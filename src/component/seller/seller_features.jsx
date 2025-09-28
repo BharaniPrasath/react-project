@@ -1,23 +1,9 @@
-import React, { useEffect, useState } from "react";
+
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 import '../../styles/seller/seller_features.css'
-import { useNavigate } from "react-router-dom";
 
 function SellerFeatures() {
-  const navigate = useNavigate();
-
-  const [companyName, setCompanyName] = useState("");
-  const [isSellerAuthenticated, setIsSellerAuthenticated] = useState(
-    localStorage.getItem("isSellerAuthenticated") === "true"
-  );
-
-  useEffect(() => {
-    if (isSellerAuthenticated) {
-      const seller = localStorage.getItem("seller");
-      navigate('/addproduct')
-    }
-  }, [isSellerAuthenticated]);
 
 
   const features = [
