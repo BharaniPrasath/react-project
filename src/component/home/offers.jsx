@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from 'axios';
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -35,6 +35,12 @@ function Offer() {
     { id: 4, name: "Mobile Accesories", img: mobile },
   ]
 
+  // , {
+  //     headers: {
+  //       Authorization: `Bearer ${localStorage.getItem("access_token")}`
+  //     }
+  //   }
+  
   useEffect(() => {
     axios.get('http://127.0.0.1:8000/getProduct/')
       .then(res => {
@@ -91,18 +97,30 @@ function Offer() {
 
       {/* New arrivals */}
 
+
       <div className="new-launch-container">
-        <h5>New Arrivals !</h5>
-        <div className="new-launch-boxes">
-          {mobileProduct.map((product) => (
-            <div key={product.id} className="new-launch-box">
-              <Link to={`showproduct/${product.id}`}>
-                <img src={`http://127.0.0.1:8000/${product.productImage1}`} alt="" />
-                <p>{product.productName}</p>
-              </Link>
+        {mobileProduct && mobileProduct.length > 0 ? (
+          <>
+            <h5>New Arrivals !</h5>
+            <div className="new-launch-boxes">
+              {mobileProduct.map((product) => (
+                <div key={product.id} className="new-launch-box">
+                  <Link to={`showproduct/${product.id}`}>
+                    <img src={`http://127.0.0.1:8000/${product.productImage1}`} alt="" />
+                    <p>{product.productName}</p>
+                  </Link>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </>
+        ) : (
+          <div className="new-launch-boxes">
+            <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
+              <h2>404 Server error !</h2>
+            </div>
+          </div>
+        )}
+
       </div>
 
 

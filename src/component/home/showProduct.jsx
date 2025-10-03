@@ -13,6 +13,7 @@ function ShowProduct() {
   const { id } = useParams()
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     axios.get(`http://127.0.0.1:8000/getProductbyID/${id}`)
       .then(res => {
         const product = res.data.mobileProduct;
