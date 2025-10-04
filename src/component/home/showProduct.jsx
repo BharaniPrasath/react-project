@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart, faBolt } from '@fortawesome/free-solid-svg-icons';
+
 
 import MyNavbar from "./navbar";
 import '../../styles/home/showProduct.css'
@@ -55,6 +58,18 @@ function ShowProduct() {
               <img src={`http://127.0.0.1:8000/${showMYProduct.productImage1}/`} alt="" />
             </div>
           </div>
+          {/* Add to cart */}
+          <div className="add-to-button-container">
+            <button className="addtocartbtn add-to-cart">
+              <FontAwesomeIcon icon={faShoppingCart} className="icon" />
+              ADD TO CART
+            </button>
+            <button className="addtocartbtn buy-now">
+              <FontAwesomeIcon icon={faBolt} className="icon" />
+              BUY NOW
+            </button>
+          </div>
+
         </div>
 
 

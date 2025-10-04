@@ -1,50 +1,48 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../home/navbar";
 import { FaTrash, FaCartShopping, FaArrowLeft } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 import '../../styles/category/addtocart.css'
 
 function CartPage() {
-  const [cartItems, setCartItems] = useState([
-    {
-      id: 1,
-      name: "Smart Watch",
-      desc: "Black Edition",
-      img: "https://via.placeholder.com/100", // adjust according to setup
-      price: 2999,
-      qty: 1,
-    },
-    {
-      id: 2,
-      name: "Running Shoes",
-      desc: "Size: 9",
-      img: "https://via.placeholder.com/100",
-      price: 1499,
-      qty: 2,
-    },
-  ]);
+  const [cartItems, setCartItems] = useState([])
 
   const updateQuantity = (id, change) => {
     setCartItems((prev) =>
       prev.map((item) =>
         item.id === id
-          ? { ...item, qty: Math.max(1, item.qty + change) }
+          ? { ...item, quantity: Math.max(1, item.quantity + change) }
           : item
       )
     );
   };
 
+
   const removeItem = (id) => {
     setCartItems((prev) => prev.filter((item) => item.id !== id));
   };
 
-  const subtotal = cartItems.reduce(
-    (sum, item) => sum + item.price * item.qty,
-    0
+  const subtotal = cartItems.reduce((sum, item) =>
+    sum + (item.product.productPrice - item.product.discountPrice) * item.quantity, 0
   );
   const delivery = 39;
   const total = subtotal + delivery;
+
+
+  useEffect(() => {
+    axios
+      .get('http://127.0.0.1:8000/getCartItem/', {})
+      .then(res => {
+        setCartItems(res.data)
+        console.log(res.data)
+      })
+      .catch(err => {
+        console.log("error on fetching ", err);
+      })
+  }, [])
+
 
   return (
     <>
@@ -60,33 +58,33 @@ function CartPage() {
                 </h4>
 
                 {cartItems.map((item) => (
-                  <div
-                    key={item.id}
-                    className="cart-item d-flex align-items-center border-bottom py-3"
-                  >
-                    <img src={item.img} alt={item.name} />
-                    <div className="ms-3 flex-grow-1">
-                      <h5 className="mb-1">{item.name}</h5>
-                      <small className="text-muted">{item.desc}</small>
+                  <div key={item.id} className="cart-item border-bottom py-3">
+                    <div className="cart-item1">
+                      <img
+                        src={item.product.productImage1 ? `http://localhost:8000${item.product.productImage1}` : "/placeholder.png"}
+                        alt={item.product.productName}
+                      />
+
+                      <div className="ms-3 flex-grow-1" style={{display:"felx",flexDirection:"column",alignItems:"start"}}>
+                        <h5 className="mb-1">{item.product.productName}</h5>
+                        <small className="text-muted">{item.product.brandName}</small>
+                      </div>
+
+                      <span className="fw-bold text-theme me-4">  {item.product.productPrice - item.product.discountPrice.toLocaleString()} </span>
                     </div>
-                    <span className="fw-bold text-theme me-4">
-                      ₹{item.price.toLocaleString()}
-                    </span>
-                    <div className="quantity d-flex align-items-center me-3">
-                      <button onClick={() => updateQuantity(item.id, -1)}>
-                        -
-                      </button>
-                      <span className="mx-2">{item.qty}</span>
-                      <button onClick={() => updateQuantity(item.id, 1)}>
-                        +
-                      </button>
+                    <div className="cart-item2">
+                    
+                      <div className="quantity d-flex align-items-center me-3">
+
+                        <button onClick={() => updateQuantity(item.id, -1)}>-</button>
+
+                        <span className="mx-2">{item.quantity}</span>
+
+                        <button onClick={() => updateQuantity(item.id, 1)}>+</button>
+                      </div>
+
+                      <button className="remove-btn" onClick={() => removeItem(item.id)}  ><FaTrash /></button>
                     </div>
-                    <button
-                      className="remove-btn"
-                      onClick={() => removeItem(item.id)}
-                    >
-                      <FaTrash />
-                    </button>
                   </div>
                 ))}
               </div>
