@@ -18,7 +18,7 @@ import {
 import search from "../../assets/search.png";
 import "../../styles/home/navbar.css";
 
-function MyNavbar({ hidesearch, hidelike, hidelogin, hidecart,hideseller }) {
+function MyNavbar({ hidesearch, hidelike, hidelogin, hidecart, hideseller }) {
   const [show, setShow] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(
     localStorage.getItem("isAuthenticated") === "true"
@@ -36,6 +36,8 @@ function MyNavbar({ hidesearch, hidelike, hidelogin, hidecart,hideseller }) {
 
     localStorage.removeItem("isAuthenticated");
     localStorage.removeItem("user");
+    localStorage.removeItem("access");
+    localStorage.removeItem("refresh");
     setIsAuthenticated(false);
     window.location.href = "/";
   };
@@ -94,18 +96,18 @@ function MyNavbar({ hidesearch, hidelike, hidelogin, hidecart,hideseller }) {
 
           {!hidecart && (
             <div className="cart right-side">
-              <Link to="/addtocart">
+              <Link to="/cart">
                 <FaShoppingCart />
                 <span>Cart</span>
               </Link>
             </div>
           )}
           {!hideseller && (
-          <div className="seller right-side">
-            <Link to="/seller">
-              <FaStore /> <span>Become a Seller</span>
-            </Link>
-          </div>
+            <div className="seller right-side">
+              <Link to="/seller">
+                <FaStore /> <span>Become a Seller</span>
+              </Link>
+            </div>
           )}
 
           {/* Offcanvas Trigger */}
@@ -133,7 +135,7 @@ function MyNavbar({ hidesearch, hidelike, hidelogin, hidecart,hideseller }) {
               <Nav.Link as={Link} to="/settings" className="menu-link">
                 <FaUser /> My Profile
               </Nav.Link>
-              <Nav.Link as={Link} to="/addtocart" className="menu-link">
+              <Nav.Link as={Link} to="/cart" className="menu-link">
                 <FaShoppingCart /> Cart
               </Nav.Link>
               <Nav.Link as={Link} to="/wishlist" className="menu-link">

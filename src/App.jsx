@@ -22,7 +22,7 @@ function App() {
         <Route path={'/signup'} element={<Signup />} />
 
         {/* === Add to cart === */}
-        <Route path={'/addtocart'} element={<CartPage />} />
+        <Route path={'/cart'} element={<CartPage />} />
         <Route path={'/addmobileproduct'} element={<AddmobileProduct />} /> 
         <Route path={'/showproduct/:id/'} element={<ShowProduct />} /> 
 

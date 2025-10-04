@@ -15,6 +15,37 @@ function ShowProduct() {
   const [discountPercent, setDiscountPercent] = useState(0);
   const { id } = useParams()
 
+
+  const handleAddToCart = (productId) => {
+    const token = localStorage.getItem("access");
+
+    if (!token) {
+      alert("You need to login first!");
+      return;
+    }
+
+    axios.post(
+      "http://127.0.0.1:8000/addtocart/",
+      { product_id: productId },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
+      .then(res => {
+        console.log("Added to cart:", res.data);
+        alert("Product added to your cart!");
+      })
+      .catch(err => {
+        console.error("Error adding to cart:", err);
+        if (err.response.status === 401) {
+          alert("Session expired. Please login again.");
+          window.location.href = "/login";
+        }
+      });
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
     axios.get(`http://127.0.0.1:8000/getProductbyID/${id}`)
@@ -60,7 +91,7 @@ function ShowProduct() {
           </div>
           {/* Add to cart */}
           <div className="add-to-button-container">
-            <button className="addtocartbtn add-to-cart">
+            <button className="addtocartbtn add-to-cart" onClick={() => handleAddToCart(showMYProduct.id)}>
               <FontAwesomeIcon icon={faShoppingCart} className="icon" />
               ADD TO CART
             </button>

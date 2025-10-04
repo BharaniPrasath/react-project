@@ -35,14 +35,10 @@ function Offer() {
     { id: 4, name: "Mobile Accesories", img: mobile },
   ]
 
-  // , {
-  //     headers: {
-  //       Authorization: `Bearer ${localStorage.getItem("access_token")}`
-  //     }
-  //   }
-  
+
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/getProduct/')
+    axios.get('http://127.0.0.1:8000/getProduct/', { withCredentials: true })
+
       .then(res => {
         setMobileProduct(res.data.mobileProduct)
       })
