@@ -119,8 +119,10 @@ function Offer() {
             <div className="new-launch-boxes">
               {mobiles.map((mobile, index) => (
                 <div key={index} className="new-launch-box">
-                  <img src={mobile.productImage1} alt={mobile.productName} />
-                  <p>{mobile.productName}</p>
+                  <div className="newboxes">
+                    <img src={mobile.productImage1} alt={mobile.productName} />
+                    <p>{mobile.productName}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -132,7 +134,7 @@ function Offer() {
       {/* ====================================================================================================================================== */}
       {/* Deal container */}
       <div className="deal-container">
-        <h5>Deal of the Month</h5>
+        <h5>Deal of the Month</h5><br />
         <div className="deal-products">
           {electronics.map((item, index) => (
             <div className="deal" key={index}>

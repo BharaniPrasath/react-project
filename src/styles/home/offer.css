@@ -127,6 +127,12 @@
     align-items: center;
     gap: 20px;
 }
+.newboxes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 .new-launch-box p{
     font-weight: bold;
     font-size: 22px;
@@ -159,30 +165,31 @@
 
     /* === deal container === */
     .deal-products {
-
         gap: 85px;
     }
+    .deal{
+        padding-top: 40px;
+        padding-bottom: 30px;
+        height: 280px;
+        padding: 0 50px;
+    }
     .deal img{
-        width: 120px;
+        height: auto;
+        width: 240px;
     }
 
     /* === new launch */
     .new-launch-container{
-        height: 250px;
+        height: 450px;
     }   
     .new-launch-boxes{
         gap: 20px;
-    }
-    .new-launch-box span{
-        width: 100px;
+        padding-left: 50px;
     }
     .new-launch-box img{
-        width: 200px;
+        width: 250px;
     }
-    .new-launch-boxes span h4{
-        font-size: 18px;
-    }
-    .new-launch-boxes span p{
-        font-size: 11px;
+    .new-launch-boxes  p{
+        font-size: 16px;
     }
 }
