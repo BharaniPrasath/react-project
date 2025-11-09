@@ -3,6 +3,9 @@ import { Container, Row, Col } from "react-bootstrap";
 import { Link } from 'react-router-dom'
 import axios from 'axios';
 
+import { mobiles } from '../../component/mobiles/mobileProduct.jsx'
+import { electronics } from '../../component/topdeals/topdeal.jsx'
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../styles/home/offer.css";
 
@@ -110,13 +113,19 @@ function Offer() {
             </div>
           </>
         ) : (
-          <div className="new-launch-boxes">
-            <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
-              <h2>404 Server error !</h2>
-            </div>
-          </div>
-        )}
 
+          <>
+            <h5>New Arrivals!</h5>
+            <div className="new-launch-boxes">
+              {mobiles.map((mobile, index) => (
+                <div key={index} className="new-launch-box">
+                  <img src={mobile.productImage1} alt={mobile.productName} />
+                  <p>{mobile.productName}</p>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
       </div>
 
 
@@ -125,12 +134,19 @@ function Offer() {
       <div className="deal-container">
         <h5>Deal of the Month</h5>
         <div className="deal-products">
-          <div className="deal"><img src="https://png.pngtree.com/png-clipart/20230927/original/pngtree-laptop-color-illustration-png-image_13136754.png" alt="" /><span>Laptops</span><span className="deal-price">From ₹27000</span></div>
+          {electronics.map((item, index) => (
+            <div className="deal" key={index}>
+              <img src={item.productImage1} alt={item.name} />
+              <br />
+              <span>{item.productName}</span>
+              <span className="deal-price">₹ {item.discountPrice}</span>
+            </div>
+          ))}
         </div>
       </div>
 
 
-    </div>
+    </div >
 
 
   );

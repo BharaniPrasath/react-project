@@ -43,23 +43,59 @@
     background-color: #fff;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
-.deal-products{
-    height: 77%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 50px;
-    overflow: scroll;
+
+.deal-products {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 50px;
+  overflow-x: auto;          /* Use auto, not scroll */
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;      /* Add space for scrollbar visibility */
+  white-space: nowrap;       /* Ensures horizontal scroll */
 }
+
+
+/* Make scrollbar visible */
+.deal-products::-webkit-scrollbar {
+  height: 10px !important;      
+}
+
+.deal-products::-webkit-scrollbar-track {
+  background: #f1f1f1;       
+  border-radius: 5px;
+}
+
+.deal-products::-webkit-scrollbar-thumb {
+  background: #888;          
+  border-radius: 5px;
+}
+
+.deal-products::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.deal {
+  min-width: 180px;  /* Ensures visible overflow */
+  flex: 0 0 auto;
+}
+
 .deal{
-    height: 100%;
+    cursor: pointer;
+    height: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
+.deal span{
+    padding-top: 10px;
+}
+
 .deal img{
     width: 170px;
+    height: 130px;
+    padding: 10px 0;
 }
 .deal-price{
     font-weight: bolder;
@@ -85,7 +121,16 @@
 }
 .new-launch-box{
     padding: 0 10px;
-    /* height: 100%; */
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.new-launch-box p{
+    font-weight: bold;
+    font-size: 22px;
+    color: #555;
 }
 .new-launch-box a{
     display: flex;

@@ -20,7 +20,7 @@ import "../../styles/home/category.css";
 
 function Category() {
     const category_img = [
-        { id: 1, name: "Mobile", img: mobile, link: "/mobilephones" },
+        { id: 1, name: "Mobile", img: mobile },
         { id: 2, name: "Watch", img: watch },
         { id: 3, name: "Earphone", img: earphone },
         { id: 4, name: "Kitchen", img: kitchen },
