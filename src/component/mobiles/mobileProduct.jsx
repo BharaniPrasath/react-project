@@ -1,12 +1,11 @@
 
-// mobilesData.js
 
 
 import s25img1 from './mobileimages/s25.jpg'
 import i15img1 from './mobileimages/15promax.png'
 import one12img1 from './mobileimages/one+12.jpg' 
 import motoE50img1 from './mobileimages/motoE50.png'
-import vivox300proimg1 from './mobileimages/vivoX300Pro.png'
+import vivox300proimg1 from './mobileimages/vivox300pro.png'
 
 export const samsungS25Ultra = {
   productName: "Samsung Galaxy S25 Ultra",
