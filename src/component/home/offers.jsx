@@ -120,8 +120,10 @@ function Offer() {
               {mobiles.map((mobile, index) => (
                 <div key={index} className="new-launch-box">
                   <div className="newboxes">
-                    <img src={mobile.productImage1} alt={mobile.productName} />
-                    <p>{mobile.productName}</p>
+                    <Link to={`/showmobileproduct/${mobile.id}`}>
+                      <img src={mobile.productImage1} alt={mobile.productName} />
+                      <p>{mobile.productName}</p>
+                    </Link>
                   </div>
                 </div>
               ))}

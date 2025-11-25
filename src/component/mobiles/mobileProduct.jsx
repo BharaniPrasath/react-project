@@ -8,6 +8,7 @@ import motoE50img1 from './mobileimages/motoE50.png'
 import vivox300proimg1 from './mobileimages/vivox300pro.png'
 
 export const samsungS25Ultra = {
+  id: 1,
   productName: "Samsung Galaxy S25 Ultra",
   brandName: "Samsung",
   modelNumber: "SM-S938B",
@@ -93,6 +94,7 @@ export const samsungS25Ultra = {
 
 
 export const iphone15ProMax = {
+  id: 2,
   productName: "iPhone 15 Pro Max",
   brandName: "Apple",
   modelNumber: "A3108",
@@ -176,6 +178,7 @@ export const iphone15ProMax = {
 };
 
 export const oneplus12 = {
+  id: 3,
   productName: "OnePlus 12",
   brandName: "OnePlus",
   modelNumber: "CPH2581",
@@ -257,6 +260,7 @@ export const oneplus12 = {
   discountPrice: 65999.0,
 };
 export const vivoX300Pro = {
+  id: 4,
   productName: "Vivo X300 Pro",
   brandName: "Vivo",
   modelNumber: "V2331",
@@ -339,6 +343,7 @@ export const vivoX300Pro = {
 };
 
 export const motoEdge50Ultra = {
+  id: 5,
   productName: "Motorola Edge 50 Ultra",
   brandName: "Motorola",
   modelNumber: "XT2401-2",

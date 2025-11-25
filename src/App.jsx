@@ -10,6 +10,7 @@ import SellerLogin from './component/seller/seller_login';
 import CartPage from './component/cart/addToCart';
 import AddmobileProduct from './component/cart/addmobileProduct';
 import ShowProduct from './component/home/showProduct';
+import ShowMobileProduct from './component/home/showMobileProduct';
 
 
 
@@ -25,6 +26,8 @@ function App() {
         <Route path={'/cart'} element={<CartPage />} />
         <Route path={'/addmobileproduct'} element={<AddmobileProduct />} /> 
         <Route path={'/showproduct/:id/'} element={<ShowProduct />} /> 
+        <Route path={'/showmobileproduct/:id/'} element={<ShowMobileProduct />} /> 
+
 
 
         {/* === SELLER === */}
